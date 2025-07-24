@@ -75,26 +75,7 @@ podcast_topic_analyzer/
 └── run_analysis.py
 ```
 
-## 🔧 Configuration
-
-### Podcast Selection
-
-Edit `scripts/fetch_podcasts.py` to add more podcast IDs:
-
-```python
-podcast_ids = [
-    "4d3fe717742d4963a85562e9f84d8c79",  # The Daily
-    "your_podcast_id_here",               # Add more podcasts
-]
-```
-
-### Analysis Parameters
-
-- **Topic modeling**: Adjust `n_topics` in `extract_topics.py`
-- **Recommendations**: Modify similarity threshold in `recommender.py`
-- **Visualizations**: Customize charts in `visualize_data.py`
-
-## 📊 Output Files
+##  Output Files
 
 ### Data Files
 
