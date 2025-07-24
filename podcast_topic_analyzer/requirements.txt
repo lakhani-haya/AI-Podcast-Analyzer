@@ -1,0 +1,10 @@
+requests
+pandas
+matplotlib
+seaborn
+scikit-learn
+vaderSentiment
+sentence-transformers
+bertopic
+streamlit
+python-dotenv
