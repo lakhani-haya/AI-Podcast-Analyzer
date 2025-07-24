@@ -168,7 +168,7 @@ podcast_ids = [
 - **Web Interface**: streamlit
 - **API**: requests
 
-### AI Models
+### Models Used
 
 - **Topic Extraction**: BERTopic with sentence-transformers
 - **Embeddings**: all-MiniLM-L6-v2 (lightweight and fast)
