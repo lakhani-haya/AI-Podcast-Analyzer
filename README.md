@@ -1,1 +1,227 @@
-# AI-Podcast-Analyzer
+# 🎧 AI Podcast Topic Analyzer & Recommender
+
+A comprehensive tool for analyzing podcast episodes using AI to extract topics, analyze sentiment, and provide intelligent recommendations.
+
+## 📋 Features
+
+- **📥 Data Fetching**: Automatically fetch podcast episodes from ListenNotes API
+- **🧠 Topic Extraction**: Use BERTopic to identify key topics in episode descriptions
+- **😊 Sentiment Analysis**: Analyze sentiment using VADER sentiment analyzer
+- **💡 Smart Recommendations**: Generate episode recommendations using sentence embeddings
+- **📊 Rich Visualizations**: Create comprehensive charts and insights
+- **🌐 Interactive Web App**: Streamlit-based interface for easy exploration
+
+## 🚀 Quick Start
+
+### 1. Prerequisites
+
+- Python 3.8 or higher
+- Git
+
+### 2. Installation
+
+1. **Clone or download this repository**
+2. **Navigate to the project directory**:
+   ```bash
+   cd podcast_topic_analyzer
+   ```
+
+3. **Install required packages**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### 3. Setup API Key
+
+1. **Get your free API key** from [ListenNotes](https://www.listennotes.com/api/)
+2. **Update the `.env` file** with your API key:
+   ```
+   LISTEN_API_KEY=f972740ef94a4629af091853e32574b8
+   ```
+
+### 4. Run the Complete Analysis
+
+**Option A: Automated Pipeline (Recommended)**
+```bash
+python run_analysis.py
+```
+
+**Option B: Manual Step-by-Step**
+```bash
+# Step 1: Fetch podcast data
+cd scripts
+python fetch_podcasts.py
+
+# Step 2: Extract topics
+python extract_topics.py
+
+# Step 3: Analyze sentiment
+python sentiment_analysis.py
+
+# Step 4: Generate recommendations
+python recommender.py
+
+# Step 5: Create visualizations
+python visualize_data.py
+```
+
+### 5. Launch the Web Interface
+
+```bash
+cd app
+streamlit run streamlit_app.py
+```
+
+## 📁 Project Structure
+
+```
+podcast_topic_analyzer/
+├── data/                           # Generated data files
+│   ├── episodes.json              # Raw episode data
+│   ├── topics.csv                 # Episodes with topics
+│   ├── topics_with_sentiment.csv  # Complete analysis
+│   └── recommendations.json       # Episode recommendations
+├── scripts/                       # Analysis scripts
+│   ├── fetch_podcasts.py         # Data fetching
+│   ├── extract_topics.py         # Topic modeling
+│   ├── sentiment_analysis.py     # Sentiment analysis
+│   ├── recommender.py            # Recommendation engine
+│   └── visualize_data.py         # Data visualization
+├── visualizations/               # Generated charts and graphs
+├── app/                         # Streamlit web application
+│   └── streamlit_app.py
+├── requirements.txt            # Python dependencies
+├── .env                       # API configuration
+└── run_analysis.py           # Main orchestrator script
+```
+
+## 🔧 Configuration
+
+### Podcast Selection
+
+Edit `scripts/fetch_podcasts.py` to add more podcast IDs:
+
+```python
+podcast_ids = [
+    "4d3fe717742d4963a85562e9f84d8c79",  # The Daily
+    "your_podcast_id_here",               # Add more podcasts
+]
+```
+
+### Analysis Parameters
+
+- **Topic modeling**: Adjust `n_topics` in `extract_topics.py`
+- **Recommendations**: Modify similarity threshold in `recommender.py`
+- **Visualizations**: Customize charts in `visualize_data.py`
+
+## 📊 Output Files
+
+### Data Files
+
+1. **`episodes.json`**: Raw episode data from API
+2. **`topics.csv`**: Episodes with extracted topics
+3. **`topics_with_sentiment.csv`**: Complete analysis with sentiment
+4. **`recommendations.json`**: Episode recommendations
+
+### Visualizations
+
+- **`sentiment_analysis.png`**: Sentiment distribution charts
+- **`topic_analysis.png`**: Topic frequency and relationships
+- **`temporal_analysis.png`**: Trends over time
+- **`summary_dashboard.png`**: Comprehensive overview
+
+## 🌐 Web Interface Features
+
+### 📊 Dashboard
+- Key metrics and statistics
+- Sentiment distribution
+- Topic overview
+
+### 🔍 Episode Explorer
+- Filter by sentiment and topic
+- Search functionality
+- Sortable episode list
+
+### 💡 Recommendations
+- Search-based recommendations
+- Topic-based browsing
+- Similarity scoring
+
+### 📈 Analytics
+- Temporal trends
+- Topic-sentiment relationships
+- Correlation analysis
+
+## 🛠️ Troubleshooting
+
+### Common Issues
+
+1. **Import Errors**: Ensure all packages are installed:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **API Errors**: Check your API key in `.env` file
+
+3. **Memory Issues**: Reduce `max_episodes` in fetch script for large datasets
+
+4. **Visualization Errors**: Install additional dependencies:
+   ```bash
+   pip install beautifulsoup4
+   ```
+
+### Performance Tips
+
+- Start with fewer episodes for testing
+- Use lighter transformer models for faster processing
+- Cache embeddings to avoid recomputation
+
+## 📚 Technical Details
+
+### Libraries Used
+
+- **Data Processing**: pandas, numpy
+- **Topic Modeling**: BERTopic, sentence-transformers
+- **Sentiment Analysis**: vaderSentiment
+- **Machine Learning**: scikit-learn
+- **Visualization**: matplotlib, seaborn
+- **Web Interface**: streamlit
+- **API**: requests
+
+### AI Models
+
+- **Topic Extraction**: BERTopic with sentence-transformers
+- **Embeddings**: all-MiniLM-L6-v2 (lightweight and fast)
+- **Sentiment**: VADER (optimized for social media text)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [ListenNotes API](https://www.listennotes.com/api/) for podcast data
+- [BERTopic](https://github.com/MaartenGr/BERTopic) for topic modeling
+- [VADER Sentiment](https://github.com/cjhutto/vaderSentiment) for sentiment analysis
+- [Sentence Transformers](https://www.sbert.net/) for embeddings
+
+## 📞 Support
+
+If you encounter any issues or have questions:
+
+1. Check the troubleshooting section above
+2. Review the error messages carefully
+3. Ensure all dependencies are properly installed
+4. Verify your API key configuration
+
+---
+
+**Happy analyzing! 🎧✨**
