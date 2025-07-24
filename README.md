@@ -1,15 +1,15 @@
-# 🎧 Podcast Topic Analyzer & Recommender
+# 🎧 AI Podcast Topic Analyzer & Recommender
 
-A tool for analyzing podcast episodes to extract topics, analyze sentiment, and provide episode recommendations.
+A tool for analyzing podcast episodes to extract topics, analyze sentiment, and find similar episodes.
 
 ## 📋 Features
 
-- **📥 Data Fetching**: Fetch podcast episodes from ListenNotes API
-- **🧠 Topic Extraction**: Identify key topics in episode descriptions
-- **😊 Sentiment Analysis**: Analyze sentiment of episode content
-- **💡 Episode Recommendations**: Find similar episodes based on content
-- **📊 Visualizations**: Create charts and insights from podcast data
-- **🌐 Web Interface**: Easy-to-use interface for exploring results
+- **📥 Data Fetching**: Get podcast episodes from ListenNotes API
+- **🧠 Topic Extraction**: Find key topics in episode descriptions
+- **😊 Sentiment Analysis**: Check if episodes are positive, negative, or neutral
+- **💡 Episode Recommendations**: Find episodes similar to ones you like
+- **📊 Visualizations**: See charts and graphs of your podcast data
+- **🌐 Web Interface**: Browse results in your web browser
 
 ## 🚀 Quick Start
 
