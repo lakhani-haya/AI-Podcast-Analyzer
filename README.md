@@ -56,23 +56,23 @@ streamlit run streamlit_app.py
 
 ```
 podcast_topic_analyzer/
-├── data/                           # Generated data files
-│   ├── episodes.json              # Raw episode data
-│   ├── topics.csv                 # Episodes with topics
-│   ├── topics_with_sentiment.csv  # Complete analysis
-│   └── recommendations.json       # Episode recommendations
-├── scripts/                       # Analysis scripts
-│   ├── fetch_podcasts.py         # Data fetching
-│   ├── extract_topics.py         # Topic modeling
-│   ├── sentiment_analysis.py     # Sentiment analysis
-│   ├── recommender.py            # Recommendation engine
-│   └── visualize_data.py         # Data visualization
-├── visualizations/               # Generated charts and graphs
-├── app/                         # Streamlit web application
+├── data/
+│   ├── episodes.json
+│   ├── topics.csv
+│   ├── topics_with_sentiment.csv
+│   └── recommendations.json
+├── scripts/
+│   ├── fetch_podcasts.py
+│   ├── extract_topics.py
+│   ├── sentiment_analysis.py
+│   ├── recommender.py
+│   └── visualize_data.py
+├── visualizations/
+├── app/
 │   └── streamlit_app.py
-├── requirements.txt            # Python dependencies
-├── .env                       # API configuration
-└── run_analysis.py           # Main orchestrator script
+├── requirements.txt
+├── .env
+└── run_analysis.py
 ```
 
 ## 🔧 Configuration
