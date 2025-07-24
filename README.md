@@ -1,15 +1,15 @@
-# 🎧 AI Podcast Topic Analyzer & Recommender
+# 🎧 Podcast Topic Analyzer & Recommender
 
-A comprehensive tool for analyzing podcast episodes using AI to extract topics, analyze sentiment, and provide intelligent recommendations.
+A tool for analyzing podcast episodes to extract topics, analyze sentiment, and provide episode recommendations.
 
 ## 📋 Features
 
-- **📥 Data Fetching**: Automatically fetch podcast episodes from ListenNotes API
-- **🧠 Topic Extraction**: Use BERTopic to identify key topics in episode descriptions
-- **😊 Sentiment Analysis**: Analyze sentiment using VADER sentiment analyzer
-- **💡 Smart Recommendations**: Generate episode recommendations using sentence embeddings
-- **📊 Rich Visualizations**: Create comprehensive charts and insights
-- **🌐 Interactive Web App**: Streamlit-based interface for easy exploration
+- **📥 Data Fetching**: Fetch podcast episodes from ListenNotes API
+- **🧠 Topic Extraction**: Identify key topics in episode descriptions
+- **😊 Sentiment Analysis**: Analyze sentiment of episode content
+- **💡 Episode Recommendations**: Find similar episodes based on content
+- **📊 Visualizations**: Create charts and insights from podcast data
+- **🌐 Web Interface**: Easy-to-use interface for exploring results
 
 ## 🚀 Quick Start
 
@@ -39,30 +39,10 @@ A comprehensive tool for analyzing podcast episodes using AI to extract topics, 
    LISTEN_API_KEY=f972740ef94a4629af091853e32574b8
    ```
 
-### 4. Run the Complete Analysis
+### 4. Run the Analysis
 
-**Option A: Automated Pipeline (Recommended)**
 ```bash
 python run_analysis.py
-```
-
-**Option B: Manual Step-by-Step**
-```bash
-# Step 1: Fetch podcast data
-cd scripts
-python fetch_podcasts.py
-
-# Step 2: Extract topics
-python extract_topics.py
-
-# Step 3: Analyze sentiment
-python sentiment_analysis.py
-
-# Step 4: Generate recommendations
-python recommender.py
-
-# Step 5: Create visualizations
-python visualize_data.py
 ```
 
 ### 5. Launch the Web Interface
