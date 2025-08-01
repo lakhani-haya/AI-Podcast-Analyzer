@@ -7,24 +7,16 @@ import json
 import os
 from datetime import datetime
 import sys
+from pathlib import Path
 
-# Add the scripts directory to the path to import our modules
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'scripts'))
+sys.path.append(str(Path(__file__).parent.parent))
 
-try:
-    from recommender import PodcastRecommender
-except ImportError:
-    st.error("Could not import recommender module. Please ensure all dependencies are installed.")
-
-# Set page config
 st.set_page_config(
     page_title="AI Podcast Analyzer",
     page_icon="🎧",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="wide"
 )
 
-# Custom CSS
 st.markdown("""
 <style>
     .main-header {
@@ -33,120 +25,187 @@ st.markdown("""
         text-align: center;
         margin-bottom: 2rem;
     }
-    .metric-card {
-        background-color: #f0f2f6;
-        padding: 1rem;
-        border-radius: 10px;
-        text-align: center;
-    }
-    .episode-card {
-        background-color: #ffffff;
-        padding: 1rem;
-        border-radius: 10px;
-        border-left: 4px solid #1f77b4;
-        margin-bottom: 1rem;
-    }
 </style>
 """, unsafe_allow_html=True)
 
 @st.cache_data
 def load_data():
-    """Load podcast data with caching"""
     try:
-        df = pd.read_csv("../data/topics_with_sentiment.csv", encoding='utf-8')
-        if 'pub_date' in df.columns:
-            df['pub_date'] = pd.to_datetime(df['pub_date'])
-        return df
-    except FileNotFoundError:
-        st.error("Data file not found. Please run the analysis scripts first.")
-        return None
+        data_path = Path(__file__).parent.parent / "data"
+        
+        episodes_file = data_path / "episodes.json"
+        topics_file = data_path / "topics_with_sentiment.csv"
+        
+        data = {}
+        
+        if episodes_file.exists():
+            with open(episodes_file, 'r', encoding='utf-8') as f:
+                data['episodes'] = json.load(f)
+        else:
+            data['episodes'] = None
+            
+        if topics_file.exists():
+            data['topics'] = pd.read_csv(topics_file, encoding='utf-8')
+            if 'pub_date' in data['topics'].columns:
+                data['topics']['pub_date'] = pd.to_datetime(data['topics']['pub_date'])
+        else:
+            data['topics'] = None
+            
+        return data
     except Exception as e:
         st.error(f"Error loading data: {e}")
-        return None
+        return {'episodes': None, 'topics': None}
 
-@st.cache_data
-def load_recommendations():
-    """Load recommendations data"""
-    try:
-        with open("../data/recommendations.json", 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return None
-    except Exception as e:
-        st.error(f"Error loading recommendations: {e}")
-        return None
-
-def display_episode_card(episode_data, show_similarity=False):
-    """Display an episode in a card format"""
-    with st.container():
-        col1, col2 = st.columns([3, 1])
-        
-        with col1:
-            st.markdown(f"**{episode_data.get('title', 'No Title')}**")
-            
-            # Topic and sentiment badges
-            col_topic, col_sentiment = st.columns(2)
-            with col_topic:
-                topic = episode_data.get('topic_label', 'Unknown')
-                st.markdown(f"🏷️ **Topic:** {topic}")
-            
-            with col_sentiment:
-                sentiment = episode_data.get('overall_sentiment_label', 'Unknown')
-                sentiment_score = episode_data.get('overall_sentiment_compound', 0)
-                
-                if sentiment == 'positive':
-                    emoji = "😊"
-                elif sentiment == 'negative':
-                    emoji = "😞"
-                else:
-                    emoji = "😐"
-                
-                st.markdown(f"{emoji} **Sentiment:** {sentiment} ({sentiment_score:.3f})")
-        
-        with col2:
-            if show_similarity and 'similarity_score' in episode_data:
-                similarity = episode_data['similarity_score']
-                st.metric("Similarity", f"{similarity:.3f}")
-            
-            if 'pub_date' in episode_data:
-                pub_date = episode_data['pub_date']
-                if pub_date and pub_date != 'Unknown':
-                    try:
-                        date_obj = pd.to_datetime(pub_date)
-                        st.markdown(f"📅 {date_obj.strftime('%Y-%m-%d')}")
-                    except:
-                        st.markdown(f"📅 {pub_date}")
+def show_setup_instructions():
+    st.title("🎧 AI Podcast Analyzer")
+    st.warning("⚠️ No data found. Please run the analysis first.")
+    
+    st.markdown("""
+    ### Setup Instructions:
+    
+    **1. Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+    
+    **2. Set up API key:**
+    Create a `.env` file with:
+    ```
+    LISTEN_API_KEY=your_api_key_here
+    ```
+    
+    **3. Run analysis:**
+    ```bash
+    python run_analysis.py
+    ```
+    
+    **4. Start this app:**
+    ```bash
+    streamlit run app/streamlit_app.py
+    ```
+    """)
 
 def main():
-    """Main Streamlit app"""
+    data = load_data()
     
-    # Header
-    st.markdown('<h1 class="main-header">🎧 AI Podcast Topic Analyzer & Recommender</h1>', unsafe_allow_html=True)
+    if not data['episodes'] and not data['topics']:
+        show_setup_instructions()
+        return
     
-    # Load data
-    df = load_data()
-    if df is None:
-        st.stop()
+    st.markdown('<h1 class="main-header">🎧 AI Podcast Analyzer</h1>', unsafe_allow_html=True)
     
-    recommendations_data = load_recommendations()
-    
-    # Sidebar
     st.sidebar.title("Navigation")
     page = st.sidebar.selectbox("Choose a page", [
         "📊 Dashboard", 
-        "🔍 Episode Explorer", 
-        "💡 Recommendations", 
+        "🔍 Episodes", 
         "📈 Analytics"
     ])
     
     if page == "📊 Dashboard":
-        show_dashboard(df)
-    elif page == "🔍 Episode Explorer":
-        show_episode_explorer(df)
-    elif page == "💡 Recommendations":
-        show_recommendations(df, recommendations_data)
+        show_dashboard(data)
+    elif page == "🔍 Episodes":
+        show_episodes(data)
     elif page == "📈 Analytics":
-        show_analytics(df)
+        show_analytics(data)
+
+def show_dashboard(data):
+    st.header("📊 Dashboard")
+    
+    if data['episodes']:
+        episodes_df = pd.DataFrame(data['episodes'])
+        
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            st.metric("Total Episodes", len(episodes_df))
+        
+        with col2:
+            if 'podcast_title' in episodes_df.columns:
+                unique_podcasts = episodes_df['podcast_title'].nunique()
+                st.metric("Podcasts", unique_podcasts)
+        
+        with col3:
+            if data['topics'] is not None:
+                avg_sentiment = data['topics']['overall_sentiment_compound'].mean()
+                st.metric("Avg Sentiment", f"{avg_sentiment:.3f}")
+    
+    if data['topics'] is not None:
+        df = data['topics']
+        
+        st.subheader("Sentiment Distribution")
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            if 'overall_sentiment_label' in df.columns:
+                sentiment_counts = df['overall_sentiment_label'].value_counts()
+                fig, ax = plt.subplots(figsize=(8, 6))
+                ax.pie(sentiment_counts.values, labels=sentiment_counts.index, autopct='%1.1f%%')
+                ax.set_title('Sentiment Distribution')
+                st.pyplot(fig)
+        
+        with col2:
+            if 'overall_sentiment_compound' in df.columns:
+                fig, ax = plt.subplots(figsize=(8, 6))
+                ax.hist(df['overall_sentiment_compound'], bins=30, alpha=0.7, edgecolor='black')
+                ax.set_xlabel('Sentiment Score')
+                ax.set_ylabel('Frequency')
+                ax.set_title('Sentiment Score Distribution')
+                ax.axvline(x=0, color='red', linestyle='--', alpha=0.7)
+                st.pyplot(fig)
+
+def show_episodes(data):
+    st.header("🔍 Episodes")
+    
+    if data['episodes']:
+        episodes_df = pd.DataFrame(data['episodes'])
+        
+        search_term = st.text_input("Search episodes", placeholder="Enter keywords...")
+        if search_term:
+            episodes_df = episodes_df[episodes_df['title'].str.contains(search_term, case=False, na=False)]
+        
+        st.subheader(f"Episodes ({len(episodes_df)} found)")
+        
+        for _, episode in episodes_df.head(20).iterrows():
+            with st.expander(f"{episode['title'][:80]}..."):
+                st.write(f"**Podcast:** {episode.get('podcast_title', 'Unknown')}")
+                if episode.get('description'):
+                    st.write(f"**Description:** {episode['description'][:300]}...")
+
+def show_analytics(data):
+    st.header("📈 Analytics")
+    
+    if data['topics'] is not None:
+        df = data['topics']
+        
+        if 'topic_label' in df.columns:
+            st.subheader("Top Topics")
+            topic_counts = df['topic_label'].value_counts().head(10)
+            
+            fig, ax = plt.subplots(figsize=(12, 6))
+            ax.barh(range(len(topic_counts)), topic_counts.values)
+            ax.set_yticks(range(len(topic_counts)))
+            ax.set_yticklabels(topic_counts.index)
+            ax.set_xlabel('Number of Episodes')
+            ax.set_title('Top 10 Topics')
+            st.pyplot(fig)
+        
+        if 'pub_date' in df.columns:
+            st.subheader("Sentiment Over Time")
+            valid_dates_df = df.dropna(subset=['pub_date'])
+            if not valid_dates_df.empty:
+                daily_sentiment = valid_dates_df.groupby(valid_dates_df['pub_date'].dt.date)['overall_sentiment_compound'].mean()
+                
+                fig, ax = plt.subplots(figsize=(12, 6))
+                ax.plot(daily_sentiment.index, daily_sentiment.values, marker='o', alpha=0.7)
+                ax.set_xlabel('Date')
+                ax.set_ylabel('Average Sentiment Score')
+                ax.set_title('Sentiment Trends Over Time')
+                ax.axhline(y=0, color='red', linestyle='--', alpha=0.5)
+                plt.xticks(rotation=45)
+                st.pyplot(fig)
+
+if __name__ == "__main__":
+    main()
 
 def show_dashboard(df):
     """Show main dashboard"""
