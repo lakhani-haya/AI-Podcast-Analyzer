@@ -58,7 +58,7 @@ def check_api_key():
     with open(env_path, 'r') as f:
         content = f.read()
         if "LISTEN_API_KEY" not in content:
-            print("❌ LISTEN_API_KEY not found in .env file!")
+            print("LISTEN_API_KEY not found in .env file!")
             return False
     
     print("✅ API key found!")
