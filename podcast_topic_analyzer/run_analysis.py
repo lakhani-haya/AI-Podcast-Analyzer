@@ -127,7 +127,7 @@ def main():
     total_duration = time.time() - start_time
     print(f"⏱️  Total time: {total_duration:.2f} seconds")
     
-    print("\n📊 RESULTS:")
+    print("\n RESULTS:")
     print("✅ Episode data: data/episodes.json")
     print("✅ Topics: data/topics.csv")
     print("✅ Sentiment: data/topics_with_sentiment.csv")
