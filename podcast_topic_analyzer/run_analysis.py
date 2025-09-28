@@ -46,7 +46,7 @@ def check_dependencies():
         print("Install them with: pip install " + " ".join(missing_packages))
         return False
     
-    print("✅ All dependencies installed!")
+    print("All dependencies installed!")
     return True
 
 def check_api_key():
