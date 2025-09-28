@@ -17,7 +17,7 @@ def run_script(script_path, description):
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         
-        print(f"✅ {description} completed!")
+        print(f" {description} completed!")
         return True
         
     except Exception as e:
