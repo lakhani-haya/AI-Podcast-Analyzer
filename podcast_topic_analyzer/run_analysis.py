@@ -61,7 +61,7 @@ def check_api_key():
             print("LISTEN_API_KEY not found in .env file!")
             return False
     
-    print("✅ API key found!")
+    print("API key found!")
     return True
 
 def main():
