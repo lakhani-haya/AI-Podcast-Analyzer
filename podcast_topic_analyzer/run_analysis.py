@@ -42,7 +42,7 @@ def check_dependencies():
             missing_packages.append(package)
     
     if missing_packages:
-        print(f"❌ Missing packages: {', '.join(missing_packages)}")
+        print(f"Missing packages: {', '.join(missing_packages)}")
         print("Install them with: pip install " + " ".join(missing_packages))
         return False
     
