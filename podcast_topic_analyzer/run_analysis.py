@@ -21,7 +21,7 @@ def run_script(script_path, description):
         return True
         
     except Exception as e:
-        print(f"❌ Error in {description}: {str(e)}")
+        print(f"Error in {description}: {str(e)}")
         return False
 
 def check_dependencies():
