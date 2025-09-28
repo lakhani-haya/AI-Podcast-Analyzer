@@ -52,7 +52,7 @@ def check_dependencies():
 def check_api_key():
     env_path = ".env"
     if not os.path.exists(env_path):
-        print("❌ .env file not found!")
+        print(" .env file not found!")
         return False
     
     with open(env_path, 'r') as f:
