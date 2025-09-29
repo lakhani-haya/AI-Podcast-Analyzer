@@ -72,7 +72,7 @@ cd app
 streamlit run streamlit_app.py
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 podcast_topic_analyzer/
