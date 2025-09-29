@@ -11,7 +11,7 @@ A comprehensive tool for analyzing podcast episodes using AI to extract topics, 
 - **Rich Visualizations**: Create comprehensive charts and insights
 - **Interactive Web App**: Streamlit-based interface for easy exploration
 
-## 🚀 Quick Start
+## Start
 
 ### 1. Prerequisites
 
