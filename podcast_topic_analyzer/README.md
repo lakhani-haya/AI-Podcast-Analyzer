@@ -2,7 +2,7 @@
 
 A comprehensive tool for analyzing podcast episodes using AI to extract topics, analyze sentiment, and provide intelligent recommendations.
 
-## 📋 Features
+## Features
 
 - **Data Fetching**: Automatically fetch podcast episodes from ListenNotes API
 - **🧠 Topic Extraction**: Use BERTopic to identify key topics in episode descriptions
