@@ -6,7 +6,7 @@ A comprehensive tool for analyzing podcast episodes using AI to extract topics, 
 
 - **Data Fetching**: Automatically fetch podcast episodes from ListenNotes API
 - **Topic Extraction**: Use BERTopic to identify key topics in episode descriptions
-- **😊 Sentiment Analysis**: Analyze sentiment using VADER sentiment analyzer
+- **Sentiment Analysis**: Analyze sentiment using VADER sentiment analyzer
 - **💡 Smart Recommendations**: Generate episode recommendations using sentence embeddings
 - **📊 Rich Visualizations**: Create comprehensive charts and insights
 - **🌐 Interactive Web App**: Streamlit-based interface for easy exploration
