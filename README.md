@@ -11,7 +11,7 @@ A tool for analyzing podcast episodes to extract topics, analyze sentiment, and 
 - **Visualizations**: See charts and graphs of your podcast data
 - **Web Interface**: Browse results in your web browser
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Prerequisites
 
