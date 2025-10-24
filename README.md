@@ -2,7 +2,7 @@
 
 A tool for analyzing podcast episodes to extract topics, analyze sentiment, and find similar episodes.
 
-## 📋 Features
+## Features
 
 - **📥 Data Fetching**: Get podcast episodes from ListenNotes API
 - **🧠 Topic Extraction**: Find key topics in episode descriptions
