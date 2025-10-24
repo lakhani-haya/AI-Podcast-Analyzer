@@ -9,7 +9,7 @@ A tool for analyzing podcast episodes to extract topics, analyze sentiment, and 
 - **Sentiment Analysis**: Check if episodes are positive, negative, or neutral
 - **Episode Recommendations**: Find episodes similar to ones you like
 - **Visualizations**: See charts and graphs of your podcast data
-- **🌐 Web Interface**: Browse results in your web browser
+- **Web Interface**: Browse results in your web browser
 
 ## 🚀 Quick Start
 
