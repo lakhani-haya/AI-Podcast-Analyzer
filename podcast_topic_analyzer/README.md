@@ -1,4 +1,4 @@
-# 🎧 AI Podcast Topic Analyzer & Recommender
+# AI Podcast Topic Analyzer & Recommender
 
 A comprehensive tool for analyzing podcast episodes using AI to extract topics, analyze sentiment, and provide intelligent recommendations.
 
