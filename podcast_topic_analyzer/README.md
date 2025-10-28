@@ -132,7 +132,7 @@ podcast_ids = [
 
 ## Web Interface Features
 
-### 📊 Dashboard
+### Dashboard
 - Key metrics and statistics
 - Sentiment distribution
 - Topic overview
