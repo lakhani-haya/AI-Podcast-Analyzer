@@ -130,7 +130,7 @@ podcast_ids = [
 - **`temporal_analysis.png`**: Trends over time
 - **`summary_dashboard.png`**: Comprehensive overview
 
-## 🌐 Web Interface Features
+## Web Interface Features
 
 ### 📊 Dashboard
 - Key metrics and statistics
