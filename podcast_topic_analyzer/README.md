@@ -114,7 +114,7 @@ podcast_ids = [
 - **Recommendations**: Modify similarity threshold in `recommender.py`
 - **Visualizations**: Customize charts in `visualize_data.py`
 
-## 📊 Output Files
+## Output Files
 
 ### Data Files
 
