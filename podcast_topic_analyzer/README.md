@@ -95,7 +95,7 @@ podcast_topic_analyzer/
 └── run_analysis.py           # Main orchestrator script
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Podcast Selection
 
