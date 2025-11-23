@@ -6,7 +6,7 @@ def install_requirements():
     print("Installing packages...")
     try:
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-        print("✅ Packages installed")
+        print("Packages installed")
         return True
     except subprocess.CalledProcessError:
         print("❌ Failed to install packages")
