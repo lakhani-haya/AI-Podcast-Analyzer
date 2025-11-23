@@ -31,7 +31,7 @@ def create_env_file():
     return True
 
 def main():
-    print("🚀 Setting up AI Podcast Analyzer...")
+    print("Setting up AI Podcast Analyzer...")
     
     if not install_requirements():
         return
