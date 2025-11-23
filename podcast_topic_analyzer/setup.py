@@ -21,7 +21,7 @@ def create_env_file():
     api_key = input("Enter your ListenNotes API key: ").strip()
     
     if not api_key:
-        print("❌ No API key provided")
+        print("No API key provided")
         return False
     
     with open(".env", "w") as f:
