@@ -9,7 +9,7 @@ def install_requirements():
         print("Packages installed")
         return True
     except subprocess.CalledProcessError:
-        print("❌ Failed to install packages")
+        print("Failed to install packages")
         return False
 
 def create_env_file():
