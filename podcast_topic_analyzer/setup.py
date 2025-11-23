@@ -27,7 +27,7 @@ def create_env_file():
     with open(".env", "w") as f:
         f.write(f"LISTEN_API_KEY={api_key}\n")
     
-    print("✅ .env file created")
+    print(" .env file created")
     return True
 
 def main():
