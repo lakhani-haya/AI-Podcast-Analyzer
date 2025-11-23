@@ -3,7 +3,7 @@ import sys
 import subprocess
 
 def install_requirements():
-    print("📦 Installing packages...")
+    print("Installing packages...")
     try:
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
         print("✅ Packages installed")
