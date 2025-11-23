@@ -17,7 +17,7 @@ def create_env_file():
         print(" .env file already exists")
         return True
     
-    print("📝 Creating .env file...")
+    print("Creating .env file...")
     api_key = input("Enter your ListenNotes API key: ").strip()
     
     if not api_key:
