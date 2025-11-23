@@ -14,7 +14,7 @@ def install_requirements():
 
 def create_env_file():
     if os.path.exists(".env"):
-        print("✅ .env file already exists")
+        print(" .env file already exists")
         return True
     
     print("📝 Creating .env file...")
