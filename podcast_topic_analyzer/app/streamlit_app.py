@@ -101,7 +101,7 @@ def main():
         "Analytics"
     ])
     
-    if page == "📊 Dashboard":
+    if page == "Dashboard":
         show_dashboard(data)
     elif page == "🔍 Episodes":
         show_episodes(data)
