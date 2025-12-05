@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
 def show_dashboard(df):
     """Show main dashboard"""
-    st.header("📊 Podcast Analysis Dashboard")
+    st.header("Podcast Analysis Dashboard")
     
     # Key metrics
     col1, col2, col3, col4 = st.columns(4)
