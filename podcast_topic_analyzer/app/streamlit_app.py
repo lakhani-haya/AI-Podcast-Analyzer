@@ -97,7 +97,7 @@ def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.selectbox("Choose a page", [
         "Dashboard", 
-        "🔍 Episodes", 
+        "Episodes", 
         "📈 Analytics"
     ])
     
