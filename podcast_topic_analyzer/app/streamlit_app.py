@@ -1,4 +1,4 @@
-import streamlit as st
+hi import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -57,8 +57,8 @@ def load_data():
         return {'episodes': None, 'topics': None}
 
 def show_setup_instructions():
-    st.title("🎧 AI Podcast Analyzer")
-    st.warning("⚠️ No data found. Please run the analysis first.")
+    st.title("AI Podcast Analyzer")
+    st.warning("No data found. Please run the analysis first.")
     
     st.markdown("""
     ### Setup Instructions:
@@ -96,7 +96,7 @@ def main():
     
     st.sidebar.title("Navigation")
     page = st.sidebar.selectbox("Choose a page", [
-        "📊 Dashboard", 
+        "Dashboard", 
         "🔍 Episodes", 
         "📈 Analytics"
     ])
