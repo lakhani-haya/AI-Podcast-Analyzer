@@ -98,7 +98,7 @@ def main():
     page = st.sidebar.selectbox("Choose a page", [
         "Dashboard", 
         "Episodes", 
-        "📈 Analytics"
+        "Analytics"
     ])
     
     if page == "📊 Dashboard":
