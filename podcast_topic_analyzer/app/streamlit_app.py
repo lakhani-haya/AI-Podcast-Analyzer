@@ -109,7 +109,7 @@ def main():
         show_analytics(data)
 
 def show_dashboard(data):
-    st.header("📊 Dashboard")
+    st.header("Dashboard")
     
     if data['episodes']:
         episodes_df = pd.DataFrame(data['episodes'])
