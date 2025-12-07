@@ -103,7 +103,7 @@ def main():
     
     if page == "Dashboard":
         show_dashboard(data)
-    elif page == "🔍 Episodes":
+    elif page == "Episodes":
         show_episodes(data)
     elif page == "📈 Analytics":
         show_analytics(data)
