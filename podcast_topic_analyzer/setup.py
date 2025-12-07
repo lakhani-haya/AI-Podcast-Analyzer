@@ -39,7 +39,7 @@ def main():
     if not create_env_file():
         return
     
-    print("\n🎉 Setup complete!")
+    print("\n Setup complete!")
     print("Next steps:")
     print("1. Run: python run_analysis.py")
     print("2. Start app: streamlit run app/streamlit_app.py")
