@@ -154,7 +154,7 @@ def show_dashboard(data):
                 st.pyplot(fig)
 
 def show_episodes(data):
-    st.header("🔍 Episodes")
+    st.header("Episodes")
     
     if data['episodes']:
         episodes_df = pd.DataFrame(data['episodes'])
