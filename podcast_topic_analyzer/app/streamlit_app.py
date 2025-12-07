@@ -172,7 +172,7 @@ def show_episodes(data):
                     st.write(f"**Description:** {episode['description'][:300]}...")
 
 def show_analytics(data):
-    st.header("📈 Analytics")
+    st.header("Analytics")
     
     if data['topics'] is not None:
         df = data['topics']
