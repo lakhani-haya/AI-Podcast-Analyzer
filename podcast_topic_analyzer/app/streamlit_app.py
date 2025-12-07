@@ -105,7 +105,7 @@ def main():
         show_dashboard(data)
     elif page == "Episodes":
         show_episodes(data)
-    elif page == "📈 Analytics":
+    elif page == "Analytics":
         show_analytics(data)
 
 def show_dashboard(data):
