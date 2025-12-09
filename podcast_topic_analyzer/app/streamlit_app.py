@@ -250,7 +250,7 @@ def show_dashboard(df):
         ax.axvline(x=0, color='red', linestyle='--', alpha=0.7)
         st.pyplot(fig)
     
-    # T
+    
     if 'topic_label' in df.columns:
         st.subheader("Top Topics")
         topic_counts = df['topic_label'].value_counts().head(10)
