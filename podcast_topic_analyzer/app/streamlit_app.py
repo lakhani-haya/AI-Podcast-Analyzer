@@ -211,7 +211,7 @@ def show_dashboard(df):
     """Show main dashboard"""
     st.header("Podcast Analysis Dashboard")
     
-    # Key metrics
+    # Key metri
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
