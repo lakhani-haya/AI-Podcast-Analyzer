@@ -65,7 +65,7 @@ def check_api_key():
     return True
 
 def main():
-    print("🎧 AI PODCAST TOPIC ANALYZER & RECOMMENDER")
+    print("AI PODCAST TOPIC ANALYZER & RECOMMENDER")
     print("Starting analysis pipeline...")
     
     project_root = os.path.dirname(os.path.abspath(__file__))
