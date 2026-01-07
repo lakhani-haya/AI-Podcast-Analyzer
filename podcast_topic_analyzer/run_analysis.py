@@ -113,7 +113,7 @@ def main():
         step_duration = time.time() - step_start
         
         if success:
-            print(f"⏱️  Step completed in {step_duration:.2f} seconds")
+            print(f" Step completed in {step_duration:.2f} seconds")
         else:
             print(f"⚠️  Step failed after {step_duration:.2f} seconds")
             
