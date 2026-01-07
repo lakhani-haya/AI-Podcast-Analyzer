@@ -125,7 +125,7 @@ def main():
     print_step(total_steps, total_steps, "ANALYSIS COMPLETE")
     
     total_duration = time.time() - start_time
-    print(f"⏱️  Total time: {total_duration:.2f} seconds")
+    print(f" Total time: {total_duration:.2f} seconds")
     
     print("\n RESULTS:")
     print("✅ Episode data: data/episodes.json")
