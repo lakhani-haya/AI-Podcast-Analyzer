@@ -128,7 +128,7 @@ def main():
     print(f" Total time: {total_duration:.2f} seconds")
     
     print("\n RESULTS:")
-    print("✅ Episode data: data/episodes.json")
+    print("Episode data: data/episodes.json")
     print("✅ Topics: data/topics.csv")
     print("✅ Sentiment: data/topics_with_sentiment.csv")
     print("✅ Recommendations: data/recommendations.json")
