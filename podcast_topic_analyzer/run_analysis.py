@@ -134,7 +134,7 @@ def main():
     print("✅ Recommendations: data/recommendations.json")
     print("✅ Visualizations: visualizations/")
     
-    print("\n🚀 NEXT STEPS:")
+    print("\n NEXT STEPS:")
     print("Run the web app: cd app && streamlit run streamlit_app.py")
     
     start_streamlit = input("\nStart Streamlit app now? (y/n): ")
