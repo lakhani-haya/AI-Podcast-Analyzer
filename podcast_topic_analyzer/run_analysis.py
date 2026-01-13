@@ -130,7 +130,7 @@ def main():
     print("\n RESULTS:")
     print("Episode data: data/episodes.json")
     print("Topics: data/topics.csv")
-    print("✅ Sentiment: data/topics_with_sentiment.csv")
+    print("Sentiment: data/topics_with_sentiment.csv")
     print("✅ Recommendations: data/recommendations.json")
     print("✅ Visualizations: visualizations/")
     
