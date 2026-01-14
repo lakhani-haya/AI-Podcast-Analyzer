@@ -132,7 +132,7 @@ def main():
     print("Topics: data/topics.csv")
     print("Sentiment: data/topics_with_sentiment.csv")
     print("Recommendations: data/recommendations.json")
-    print("✅ Visualizations: visualizations/")
+    print("Visualizations: visualizations/")
     
     print("\n NEXT STEPS:")
     print("Run the web app: cd app && streamlit run streamlit_app.py")
