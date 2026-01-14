@@ -265,7 +265,7 @@ def show_dashboard(df):
 
 def show_episode_explorer(df):
     """Show episode explorer page"""
-    st.header("🔍 Episode Explorer")
+    st.header("Episode Explorer")
     
     # Filters
     st.subheader("Filters")
