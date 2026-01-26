@@ -5,7 +5,7 @@ import numpy as np
 from datetime import datetime
 import os
 
-# Set style for beplots
+# Set style for plots
 plt.style.use('seaborn-v0_8')
 sns.set_palette("husl")
 
